@@ -15,7 +15,7 @@ class Program
         // Настройки сервера MQTT для локальной работы (localhost)
         var optionsBuilder = new MqttServerOptionsBuilder()
             .WithDefaultEndpoint()
-            .WithDefaultEndpointBoundIPAddress(IPAddress.Any) // Используем 0.0.0.0 для доступа извне
+            .WithDefaultEndpointBoundIPAddress(IPAddress.Any)
             .WithDefaultEndpointPort(1883); // Указываем порт для MQTT-брокера
 
         // Создаем и конфигурируем MQTT-сервер
