@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 public class ProtocolData
 {
     public int K { get; set; }
-    public int F { get; set; }
+    public int O { get; set; }
     public int Q { get; set; }
     public double B { get; set; }
     public int A { get; set; }
@@ -29,7 +29,7 @@ public class ProtocolData
                 switch (key)
                 {
                     case "K": data.K = int.Parse(value); break;
-                    case "F": data.F = int.Parse(value); break;
+                    case "F": data.O = int.Parse(value); break;
                     case "Q": data.Q = int.Parse(value); break;
                     case "B":
                         if (value.Length == 4)
@@ -66,13 +66,13 @@ public class ProtocolData
         return data;
     }
 
-    public static ProtocolData CreateRandom(int k, int f)
+    public static ProtocolData CreateRandom(int k, int o)
     {
         var rand = new Random();
         var data = new ProtocolData
         {
             K = k,
-            F = f,
+            O = o,
             Q = rand.Next(1, 100),
             B = ((rand.Next(0, 16) << 4) * 10) + rand.Next(0, 16),
             A = rand.Next(1, 100),
@@ -84,7 +84,7 @@ public class ProtocolData
 
     public override string ToString()
     {
-        return $"K:{K};F:{F};Q:{Q};B:{(int)(B / 10):X2}{(int)(B % 10):X2};A:{A};R:{((int)R >> 16):X2}{(((int)R >> 8) & 0xFF):X2}{((int)R & 0xFF):X2};T:{T:dd/MM/yy,HH:mm:ss};";
+        return $"K:{K};F:{O};Q:{Q};B:{(int)(B / 10):X2}{(int)(B % 10):X2};A:{A};R:{((int)R >> 16):X2}{(((int)R >> 8) & 0xFF):X2}{((int)R & 0xFF):X2};T:{T:dd/MM/yy,HH:mm:ss};";
     }
 }
 
